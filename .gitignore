@@ -1,0 +1,9 @@
+/dist
+/node_modules
+/.idea
+yarn.lock
+package-lock.json
+.DS_Store
+qiniu.config.json
+/yarn-error.log
+/stats-prod.json/
