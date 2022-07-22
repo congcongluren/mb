@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@src/*": ["src/*"],
+            "@assets/*": ["assets/*"],
+            "@redux/*": ["src/redux/*"],
+            "@components/*": ["src/components/*"],
+            "@publicComponents/*": ["src/publicComponents/*"],
+            "@containers/*": ["src/containers/*"],
+            "@api/*": ["src/api/*"],
+            "@actions/*": ["src/redux/actions/*"],
+            "@utils/*": ["src/utils/*"],
+        },
+        "target": "es6",
+        "experimentalDecorators": true
+    },
+    "exclude": ["node_modules", "dist"]
+}

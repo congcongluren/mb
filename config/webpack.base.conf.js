@@ -34,9 +34,15 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
-      "@": resolve(__dirname, 'src/'),
-      "&": resolve(__dirname, 'assets'),
-      "~": resolve(__dirname, 'src/utils'),
+      '@assets': resolve('assets'),
+      '@src': resolve(__dirname, 'src'),
+      '@redux': resolve(__dirname, 'src/redux'),
+      '@components': resolve(__dirname, 'src/components'),
+      '@publicComponents': resolve(__dirname, 'src/publicComponents'),
+      '@containers': resolve(__dirname, 'src/containers'),
+      '@api': resolve(__dirname, 'src/api'),
+      '@actions': resolve(__dirname, 'src/redux/actions'),
+      '@utils': resolve(__dirname, 'src/utils'),
     }
   },
   module: {
