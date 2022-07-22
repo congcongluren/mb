@@ -1,5 +1,5 @@
 {
-  "name": "five-years",
+  "name": "js_object",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack server",
     "dev": "webpack serve --mode development --progress --config config/webpack.dev.conf.js",
-    "prodo": "webpack --mode=production",
     "prod": "webpack --mode production --progress --color --config config/webpack.prod.conf.js"
   },
   "keywords": [],
