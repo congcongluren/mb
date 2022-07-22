@@ -52,8 +52,6 @@ module.exports = {
             options: {
               presets: [
                 "@babel/preset-env", // 将es5+转换成es5
-                // "@babel/preset-react", // 将react中的jsx语法转换成js语法
-                // '@babel/preset-typescript'  // 将react中ts
               ],
               cacheDirectory: true,
             },
@@ -70,8 +68,6 @@ module.exports = {
             options: {
               presets: [
                 "@babel/preset-env", // 将es5+转换成es5
-                "@babel/preset-react", // 将react中的jsx语法转换成js语法
-                // "@babel/preset-typescript", // 将react中ts
               ],
               cacheDirectory: true,
             },
@@ -118,31 +114,12 @@ module.exports = {
             maxSize: 2 * 1024 // 2kb （低于2kb都会压缩）
           }
         },
-      },
-
-      // {
-      //   test: /\.(jpg|jpeg|png|gif|svg|webp)$/,
-      //   loader: 'url-loader',
-      //   options: {
-      //     limit: 10000,
-      //     name: './img/[name].[hash:8].[ext]',
-      //     esModule: false
-      //   }
-      // },
-      // {
-      //   test: /\.(ect|ttf|svg|woff)$/,
-      //   use: {
-      //     loader: 'file-loader',
-      //     options: {
-      //       name: 'icon/[name].[ext]'
-      //     }
-      //   }
-      // }
+      }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './public/index.html',
       filename: 'index.html',
       minify: {
         // 移除空格

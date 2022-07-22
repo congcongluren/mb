@@ -12,26 +12,22 @@ module.exports = merge(baseWebpackConfig, {
         port: 443,
         host: '127.0.0.1',
         allowedHosts: [
-            '818ps.com',
-            'ue.818ps.com',
-            '888.tusij.com',
-            'test-web.818ps.com',
-            'web.818ps.com',
+            'localhost',
         ],
         // open: true,
         https: true,
         static: {
             directory: resolve(__dirname, '../assets'),
         },
-        // proxy: {
-        //   '/api': 'https://818ps.com/'
-        // }
+        proxy: {
+          '/api': 'https://localhost/'
+        },
         client: {
             webSocketURL: 'ws://0.0.0.0:443/ws',
         },
-        // headers: {
-        //   'Access-Control-Allow-Origin': '*',
-        // }
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        }
     },
     plugins: [
         new ProgressPlugin({
