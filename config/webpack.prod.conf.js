@@ -1,9 +1,10 @@
 const path = require("path");
 const { merge } = require('webpack-merge');
-let baseWebpackConfig = require('./webpack.base.conf');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { ProgressPlugin } = require('webpack');
 const TerserPlugin = require("terser-webpack-plugin");
+
+let baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
   mode: "production",

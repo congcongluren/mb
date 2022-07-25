@@ -1,1 +1,17 @@
 @import url(./reset.css);
+
+.clear:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+body {
+    #main{
+        text-align: center;
+        transform: translateY(100px);
+        color: rgb(0, 255, 221);
+    }
+}

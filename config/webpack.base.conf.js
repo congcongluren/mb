@@ -32,7 +32,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".ts" ],
     alias: {
       "@": resolve(__dirname, 'src/'),
       "&": resolve(__dirname, 'assets'),
@@ -42,36 +42,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         include: resolve(__dirname, "src"),
         exclude: /node_modules/,
         enforce: "pre",
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env", // 将es5+转换成es5
-              ],
-              cacheDirectory: true,
-            },
-          },
-        ],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(ts)$/,
         include: resolve(__dirname, "src"),
         exclude: /node_modules/,
         use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env", // 将es5+转换成es5
-              ],
-              cacheDirectory: true,
-            },
-          },
+          "babel-loader",
           "ts-loader",
         ],
       },
