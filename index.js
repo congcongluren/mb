@@ -1,7 +1,14 @@
-let fun = () => {};
-new Promise((resolve, reject) => {
-    let arr = [11,1,1]
-    resolve(arr);
-}).then(res => {
-    console.log(...res);
-})
+// import './src/style/index.scss';
+// import './src/main';
+
+const f = () => {};
+
+new Promise(() => {});
+
+class Test {}
+
+let list = [f, Test];
+
+console.log(...list); 
+
+Promise.allSettled(['p1, p2, p3']).then(res => console.log(res));

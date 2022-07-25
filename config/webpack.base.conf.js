@@ -1,10 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-function resolve(dir) {
-    return path.join(__dirname, '..', dir);
-}
-
 module.exports = {
     entry: './index.js',
     output: {
@@ -20,11 +16,6 @@ module.exports = {
                 // exclude: /node_modules/,
             },
             {
-                test: /\.ts(x?)$/,
-                use: 'ts-loader',
-                // exclude: /node_modules/,
-            },
-            {
                 test: /\.css$/,
                 exclude: /node_modules/,
                 use: ['style-loader', 'css-loader'],
@@ -32,19 +23,7 @@ module.exports = {
             {
                 test: /\.scss/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
-            },
-            {
-                test: /\.worker\.(c|m)?js$/,
-                use: [
-                    {
-                        loader: 'worker-loader',
-                        options: {
-                            inline: 'no-fallback',
-                        },
-                    },
-                    'babel-loader',
-                ],
-            },
+            }
         ],
     },
     plugins: [
