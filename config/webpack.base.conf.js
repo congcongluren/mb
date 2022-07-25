@@ -46,12 +46,7 @@ module.exports = {
         include: resolve(__dirname, "src"),
         exclude: /node_modules/,
         enforce: "pre",
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env']
-          }
-        }
+        use: ['babel-loader']
       },
       {
         test: /\.(ts)$/,
