@@ -1,135 +1,60 @@
-const { resolve } = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const publicCss = [
-  {
-    loader: MiniCssExtractPlugin.loader,
-  },
-  'css-loader',
-  {
-    loader: 'postcss-loader',
-    options: {
-      postcssOptions: {
-        plugins: [
-          [
-            'postcss-preset-env',
-          ],
-        ],
-      },
-    },
-  },
-]
-
+function resolve(dir) {
+    return path.join(__dirname, '..', dir);
+}
 
 module.exports = {
-  entry: {
-    mian: "./index.js",
-  },
-  output: {
-    filename: "js/main.js",
-    path: resolve(__dirname, "../dist"),
-    clean: true,
-  },
-  resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
-    alias: {
-      "@": resolve(__dirname, 'src/'),
-      "&": resolve(__dirname, 'assets'),
-      "~": resolve(__dirname, 'src/utils'),
-    }
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        include: resolve(__dirname, "src"),
-        exclude: /node_modules/,
-        enforce: "pre",
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env", // 将es5+转换成es5
-              ],
-              cacheDirectory: true,
+    entry: './index.js',
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+    },
+    stats: { children: true, errorDetails: true },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                use: 'babel-loader',
+                // exclude: /node_modules/,
             },
-          },
-        ],
-      },
-      {
-        test: /\.(ts|tsx)$/,
-        include: resolve(__dirname, "src"),
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env", // 将es5+转换成es5
-              ],
-              cacheDirectory: true,
+            {
+                test: /\.ts(x?)$/,
+                use: 'ts-loader',
+                // exclude: /node_modules/,
             },
-          },
-          "ts-loader",
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader'],
+            },
+            {
+                test: /\.scss/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+            },
+            {
+                test: /\.worker\.(c|m)?js$/,
+                use: [
+                    {
+                        loader: 'worker-loader',
+                        options: {
+                            inline: 'no-fallback',
+                        },
+                    },
+                    'babel-loader',
+                ],
+            },
         ],
-      },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        use: [...publicCss]
-      },
-      {
-        test: /\.less$/,
-        exclude: /node_modules/,
-        use: [...publicCss, 'less-loader'],
-      },
-      {
-        test: /\.s[ac]ss$/,
-        exclude: /node_modules/,
-        use: [...publicCss, 'sass-loader']
-      },
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        type: "asset", // 一般会转换为 "asset/resource"
-        generator: {
-          filename: "img/[name]_[hash:8][ext]", // 独立的配置
-        },
-        parser: {
-          dataUrlCondition: {
-            maxSize: 8 * 1024 // 8kb （低于8kb都会压缩成 base64）
-          }
-        },
-      },
-      // 字体文件
-      {
-        test: /\.(otf|eot|woff2?|ttf|svg)$/i,
-        type: "asset", // 一般会转换为 "asset/inline"
-        generator: {
-          filename: "icon/[name]_[hash:8][ext]", // 独立的配置
-        },
-        parser: {
-          dataUrlCondition: {
-            maxSize: 2 * 1024 // 2kb （低于2kb都会压缩）
-          }
-        },
-      }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: './public/index.html',
+        }),
     ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      minify: {
-        // 移除空格
-        collapseWhitespace: false,
-        // 移除注释
-        removeComments: false
-      }
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'css/main.css'
-    }),
-  ]
+    resolve: {
+        extensions: ['.js', '.ts', '.tsx', '.json'],
+        alias: {
+        },
+    },
 };

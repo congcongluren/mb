@@ -1,38 +1,54 @@
-const path = require("path");
+const path = require('path');
 const { merge } = require('webpack-merge');
+const CleanPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 let baseWebpackConfig = require('./webpack.base.conf');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { ProgressPlugin } = require('webpack');
-const TerserPlugin = require("terser-webpack-plugin");
+
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(baseWebpackConfig, {
-  mode: "production",
-  plugins: [
-    new ProgressPlugin({
-      activeModules: false,
-      entries: true,
-      modules: true,
-      modulesCount: 5000,
-      profile: false,
-      dependencies: true,
-      dependenciesCount: 10000,
-      percentBy: 'entries',
-    }),
-    new CopyWebpackPlugin({
-      patterns: [{
-        from: path.resolve(__dirname, "../assets"),//当前工作路径是在dist文件夹内，（dist和public是同级的）
-        to: './',//放到output文件夹下，也就是当前工作文件夹dist内
-        globOptions: {
-          dot: true,
-          gitignore: false,
-          ignore: [ // 配置不用copy的文件
-          ]
-        }
-      }]
-    }),
-  ],
-  optimization: {
-    minimize: true,
-    minimizer: [new TerserPlugin()],
-  },
+    output: {
+        filename: 'dist/js/[name].[contenthash:7].js',
+        path: path.resolve(__dirname, '../', 'dist'),
+        chunkFilename: 'dist/js/[name][chunkhash:5].chunk.js',
+    },
+    target: ['web', 'es5'],
+    devtool: false,
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            plugins: [require('autoprefixer')],
+                        },
+                    },
+                    'sass-loader',
+                ],
+            }
+        ],
+    },
+    plugins: [
+        new CleanPlugin(['dist'], {
+            root: path.resolve(__dirname, '../'),
+            verbose: true,
+            dry: false,
+        }),
+        new MiniCssExtractPlugin({
+            filename: 'dist/css/[name].[contenthash:7].css',
+        })
+    ],
+    optimization: {
+      minimize: false,
+      minimizer: [new TerserPlugin()],
+    },
 });
+
