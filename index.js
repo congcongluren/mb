@@ -1,5 +1,5 @@
-import './src/style/index.scss';
-import './src/main';
+// import './src/style/index.scss';
+// import './src/main';
 
 const f = () => {};
 
