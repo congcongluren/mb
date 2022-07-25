@@ -65,23 +65,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(ts|tsx)$/,
-        include: resolve(__dirname, "src"),
-        exclude: /node_modules/,
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env", // 将es5+转换成es5
-              ],
-              cacheDirectory: true,
-            },
-          },
-          "ts-loader",
-        ],
-      },
-      {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [...publicCss]
