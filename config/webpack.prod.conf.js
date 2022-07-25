@@ -8,6 +8,7 @@ let baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
   mode: "production",
+  devtool: false,
   plugins: [
     new ProgressPlugin({
       activeModules: false,
@@ -33,7 +34,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
   ],
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [new TerserPlugin()],
   },
 });
