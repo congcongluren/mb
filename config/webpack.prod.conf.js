@@ -4,23 +4,12 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { ProgressPlugin } = require('webpack');
 const TerserPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 let baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
   devtool: false,
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      minify: {
-        // 移除空格
-        collapseWhitespace: true,
-        // 移除注释
-        removeComments: true
-      }
-    }),
     new ProgressPlugin({
       activeModules: false,
       entries: true,
