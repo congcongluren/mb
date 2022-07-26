@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "@src/*": ["src/*"],
+            "@utils/*": ["src/utils/*"],
+            "@utils": ["src/utils/index.js"],
+            "@assets/*": ["assets/*"],
+        },
+        "target": "es6",
+        "experimentalDecorators": true
+    },
+    "exclude": ["node_modules", "dist"]
+}

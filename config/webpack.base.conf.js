@@ -24,7 +24,7 @@ const publicCss = [
 
 module.exports = {
   entry: {
-    mian: "./index.js",
+    mian: "./src/index.js",
   },
   output: {
     filename: "js/main.js",
@@ -34,9 +34,9 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts" ],
     alias: {
-      "@": resolve(__dirname, 'src/'),
-      "&": resolve(__dirname, 'assets'),
-      "~": resolve(__dirname, 'src/utils'),
+      "@src": resolve(__dirname, 'src/'),
+      "@assets": resolve(__dirname, 'assets'),
+      "@util": resolve(__dirname, 'src/utils'),
     }
   },
   module: {
@@ -97,16 +97,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      minify: {
-        // 移除空格
-        collapseWhitespace: false,
-        // 移除注释
-        removeComments: false
-      }
-    }),
     new MiniCssExtractPlugin({
       filename: 'css/main.css'
     }),

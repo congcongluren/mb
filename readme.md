@@ -7,14 +7,7 @@
 ` npm run dev `
 
 打包
-` npm run prod `
-
-  "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.18.9"
-  },
-  "devDependencies": {
-    "@babel/core": "7.8.4",
-    "@babel/preset-env": "^7.14.2",
-    "@webpack-cli/serve": "^1.3.1",
-    "autoprefixer": "^9.1.5",
-    "babel-loader": "^8.0.0",
+` npm run prod `   
+  生产环境使用，代码压缩，es6转换
+` npm run build `
+  生产环境使用，代码不压缩，不转换，用于需要修改js,css 文件的情况，极少数
