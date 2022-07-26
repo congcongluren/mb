@@ -1,13 +1,13 @@
 {
-  "name": "js_object",
+  "name": "cclr_object",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --mode development --progress --config config/webpack.dev.conf.js",
     "dev": "webpack serve --mode development --progress --config config/webpack.dev.conf.js",
-    "build": "webpack --mode development --progress --color --config config/webpack.build.conf.js",
+    "build": "webpack --mode production --progress --color --config config/webpack.prod.conf.js",
     "prod": "webpack --mode production --progress --color --config config/webpack.prod.conf.js"
   },
   "keywords": [],
