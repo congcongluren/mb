@@ -43,14 +43,11 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        include: resolve(__dirname, "src"),
         exclude: /node_modules/,
-        enforce: "pre",
         use: ['babel-loader']
       },
       {
         test: /\.(ts)$/,
-        include: resolve(__dirname, "src"),
         exclude: /node_modules/,
         use: [
           "babel-loader",

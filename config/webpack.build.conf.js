@@ -8,6 +8,15 @@ let baseWebpackConfig = require('./webpack.base.conf');
 
 module.exports = merge(baseWebpackConfig, {
   devtool: false,
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ['babel-loader']
+      }
+    ],
+  },
   plugins: [
     new ProgressPlugin({
       activeModules: false,
@@ -33,7 +42,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
   ],
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [new TerserPlugin()],
   },
 });
