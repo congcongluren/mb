@@ -7,4 +7,4 @@
 ` npm run dev `
 
 打包
-` npm run prod `
+` npm run prod `   

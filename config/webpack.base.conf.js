@@ -24,7 +24,7 @@ const publicCss = [
 
 module.exports = {
   entry: {
-    mian: "./index.js",
+    mian: "./src/index.js",
   },
   output: {
     filename: "js/main.js",
@@ -32,7 +32,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".ts" ],
     alias: {
       '@assets': resolve('assets'),
       '@src': resolve(__dirname, 'src'),
@@ -48,21 +48,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        include: resolve(__dirname, "src"),
+        test: /\.js$/,
         exclude: /node_modules/,
-        enforce: "pre",
-        use: [
-          {
-            loader: "babel-loader",
-            options: {
-              presets: [
-                "@babel/preset-env", // 将es5+转换成es5
-              ],
-              cacheDirectory: true,
-            },
-          },
-        ],
+        use: ['babel-loader']
       },
       {
         test: /\.css$/,
@@ -107,16 +95,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: 'index.html',
-      minify: {
-        // 移除空格
-        collapseWhitespace: false,
-        // 移除注释
-        removeComments: false
-      }
-    }),
     new MiniCssExtractPlugin({
       filename: 'css/main.css'
     }),
