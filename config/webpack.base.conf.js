@@ -1,6 +1,6 @@
 const { resolve } = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const publicCss = [
   {
@@ -97,6 +97,16 @@ module.exports = {
     ],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html',
+      minify: {
+        // 移除空格
+        collapseWhitespace: true,
+        // 移除注释
+        removeComments: true
+      }
+    }),
     new MiniCssExtractPlugin({
       filename: 'css/main.css'
     }),

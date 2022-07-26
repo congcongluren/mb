@@ -30,16 +30,6 @@ module.exports = merge(baseWebpackConfig, {
         }
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: 'index.html',
-            minify: {
-                // 移除空格
-                collapseWhitespace: false,
-                // 移除注释
-                removeComments: false
-            }
-        }),
         new ProgressPlugin({
             activeModules: false,
             entries: true,
