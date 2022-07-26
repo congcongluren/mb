@@ -1,5 +1,14 @@
-.list{
-    text-align: center;
-    font-size: 30px;
-    color: currentColor;
+.list {
+    p{
+        text-align: center;
+        font-size: 30px;
+        color: currentColor;
+    }
+    div{
+        text-align: center;
+    }
+    a{
+        color: aqua;
+        text-decoration: underline;
+    }
 }

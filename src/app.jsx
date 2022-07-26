@@ -1,15 +1,12 @@
 import React from "react";
-import Main from './pages/home';
-import RouteEntry from './router';
+import { useRoutes } from "react-router-dom"
+import routerList from './router';
 
 const App = () => {
+    const element = useRoutes(routerList);
     return (
         <div className="app">
-            <RouteEntry/>
-            {/* <Main 
-                name='main'
-                age='18'
-            /> */}
+            {element}
         </div>
     )
 }
