@@ -32,7 +32,7 @@ module.exports = {
     clean: true,
   },
   resolve: {
-    extensions: [".js", ".ts" ],
+    extensions: [".js", ".jsx"],
     alias: {
       '@assets': resolve('assets'),
       '@src': resolve(__dirname, 'src'),
@@ -48,7 +48,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js(x)?$/,
         exclude: /node_modules/,
         use: ['babel-loader']
       },

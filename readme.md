@@ -1,4 +1,4 @@
-# react scss 开发环境
+# react js开发环境
 
 初始化
 ` npm i `
