@@ -35,6 +35,11 @@ module.exports = merge(baseWebpackConfig, {
   ],
   optimization: {
     minimize: true,
-    minimizer: [new TerserPlugin(), new OptimizeCSSAssetsPlugin()],
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false
+      }), 
+      new OptimizeCSSAssetsPlugin()
+    ]
   },
 });

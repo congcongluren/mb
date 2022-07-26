@@ -21,6 +21,7 @@ const publicCss = [
   },
 ]
 
+console.log(__dirname);
 
 module.exports = {
   entry: {
@@ -35,14 +36,15 @@ module.exports = {
     extensions: [".js", ".jsx"],
     alias: {
       '@assets': resolve('assets'),
-      '@src': resolve(__dirname, 'src'),
-      '@redux': resolve(__dirname, 'src/redux'),
-      '@components': resolve(__dirname, 'src/components'),
-      '@publicComponents': resolve(__dirname, 'src/publicComponents'),
-      '@containers': resolve(__dirname, 'src/containers'),
-      '@api': resolve(__dirname, 'src/api'),
-      '@actions': resolve(__dirname, 'src/redux/actions'),
-      '@utils': resolve(__dirname, 'src/utils'),
+      '@src': resolve(__dirname, '../src'),
+      '@pages': resolve(__dirname, '../src/pages'),
+      '@redux': resolve(__dirname, '../src/redux'),
+      '@components': resolve(__dirname, '../src/components'),
+      '@publicComponents': resolve(__dirname, '../src/publicComponents'),
+      '@containers': resolve(__dirname, '../src/containers'),
+      '@api': resolve(__dirname, '../src/api'),
+      '@actions': resolve(__dirname, '../src/redux/actions'),
+      '@utils': resolve(__dirname, '../src/utils'),
     }
   },
   module: {

@@ -14,7 +14,7 @@ module.exports = merge(baseWebpackConfig, {
         allowedHosts: [
             'localhost',
         ],
-        // open: true,
+        open: true,
         https: true,
         static: {
             directory: resolve(__dirname, '../assets'),
