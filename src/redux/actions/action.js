@@ -11,8 +11,10 @@ export function createDecrementAction(data) {
 }
 
 // 加法
-export function setName(data) {
-    return { type: SETNAME, payload: data }
+export function setUserName(data) {
+    return (dispatch, getState) => {
+        dispatch({ type: SETNAME, payload: data });
+    }
 }
 
 // 减法

@@ -1,7 +1,29 @@
 .home{
     text-align: center;
     color: aqua;
-    button{
+    h2{
         font-size: 30px;
+    }
+
+    .name{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        input{
+            background: rgb(230, 230, 230);
+            height: 30px;
+            font-size: 20px;
+            width: 100px;
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+        button{
+            font-size: 20px;
+            padding: 10px 30px;
+            margin-left: 20px;
+            border-radius: 50px;
+            background: rgb(0, 183, 255);
+        }
     }
 }

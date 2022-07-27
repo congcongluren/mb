@@ -15,6 +15,7 @@ export default function userReducer(preState = defaultState, action) {
         case DECREMENT:
             break;
         case SETNAME:
+            console.log(payload);
             preState.name = payload;
             break;
         case SETAGE:

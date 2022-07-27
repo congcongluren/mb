@@ -21,8 +21,6 @@ const publicCss = [
   },
 ]
 
-console.log(__dirname);
-
 module.exports = {
   entry: {
     mian: "./src/index.js",
