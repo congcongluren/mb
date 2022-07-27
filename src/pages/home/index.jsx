@@ -1,22 +1,25 @@
 import React, { useCallback, useState } from 'react';
-import { connect } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { setUserName } from '@actions/action'
+import { setUserName } from '@features/userSlice';
 
+import { useDispatch, useSelector } from 'react-redux';
 import './index.scss';
 
 function Home(props) {
-  const { user, setUserName } = props;
-
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // 跳转方法
   const [name, setName] = useState('');
 
+  const user = useSelector(store=>store.user); // store
+  const dispatch = useDispatch(); // dispatch
+
+  // 跳转方法
   const toList = () => {
     navigate('/list', { state: 'alien' });
   }
 
+  // 提交到store
   const sendName = useCallback(() => {
-    setUserName(name);
+    dispatch(setUserName(name));
     setName('');
   }, [name]);
 
@@ -39,11 +42,4 @@ function Home(props) {
   )
 }
 
-const mapStateToProps = (state) => {
-  return {
-    user: state.user
-  }
-}
-const mapDispatchToProps = { setUserName }
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

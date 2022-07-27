@@ -1,6 +1,6 @@
 # react 开发环境
 
-router6  redux  redux-thunk 
+router6  redux  toolkit
 支持 redux-devTools
 
 初始化
