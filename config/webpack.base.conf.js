@@ -43,6 +43,7 @@ module.exports = {
       '@api': resolve(__dirname, '../src/api'),
       '@actions': resolve(__dirname, '../src/redux/actions'),
       '@features': resolve(__dirname, '../src/redux/features'),
+      '@recoil': resolve(__dirname, '../src/recoil'),
       '@utils': resolve(__dirname, '../src/utils'),
     }
   },
