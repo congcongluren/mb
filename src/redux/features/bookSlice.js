@@ -30,6 +30,7 @@ const bookSlice = createSlice({
     },
     // extraReducers 可以让 slice 处理在别处定义的 actions，
     // 包括由 createAsyncThunk 或其他 slice 生成的 actions 。
+    // extraReducers也可以是对象
     extraReducers(builder) {
         builder
             .addCase(getBookList.pending, (state) => {
