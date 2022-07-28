@@ -1,6 +1,7 @@
 import React from "react";
 import Home from '@pages/home';
 import List from '@pages/list';
+import First from '@pages/list/first';
 
 export default [
     {
@@ -13,7 +14,7 @@ export default [
         children: [
             {
                 index: true,
-                element: <div>List first content</div>
+                element: <First/>
             },
             {
                 path: '/list/second',

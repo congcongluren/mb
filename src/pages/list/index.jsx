@@ -3,22 +3,22 @@ import { Outlet, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getMovieList } from '@features/movieSlice';
+import { getBookList } from '@features/bookSlice';
 
 import './index.scss';
 
 export default function List() {
 
     const router = useLocation(); // 获取路由信息
-    const movie = useSelector(store => store.movie); // store
+    const book = useSelector(store => store.book); // store
     const dispatch = useDispatch(); // dispatch
 
     useEffect(() => {
-        dispatch(getMovieList());
+        dispatch(getBookList());
     }, []);
 
     console.log(router);
-    console.log(movie);
+    console.log(book);
 
     return (
         <div className='list'>

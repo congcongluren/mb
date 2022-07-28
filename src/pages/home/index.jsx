@@ -25,10 +25,11 @@ function Home(props) {
 
   return (
     <div className="home">
-      <h2 onClick={toList}>
+      <h2>
         Welcome to use cclr !!
         <p>name: <span>{user.name}</span></p>
       </h2>
+      <a onClick={toList}>去看列表</a>
       <div className='name'>
         <input type="text"
           value={name}
