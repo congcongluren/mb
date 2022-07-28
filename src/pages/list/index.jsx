@@ -1,24 +1,37 @@
 import React, { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRecoilState, useResetRecoilState, useSetRecoilState } from 'recoil';
 
-import { getBookList } from '@features/bookSlice';
+import { getList } from '@api';
+import {
+    todoListState,
+    todoListFilterState,
+    filteredTodoListState
+} from '@recoil/list';
 
 import './index.scss';
 
 export default function List() {
-
     const router = useLocation(); // 获取路由信息
-    const book = useSelector(store => store.book); // store
-    const dispatch = useDispatch(); // dispatch
+
+    // 获取数据
+    // const [data, setTodoListState] = useRecoilState(todoListState);
+    const setTodoList = useSetRecoilState(todoListState);
 
     useEffect(() => {
-        dispatch(getBookList());
+        getList().then(res => {
+            setTodoList((oldTodoList) => {
+                return [
+                    ...oldTodoList,
+                    ...res,
+                    {
+                        title: 'extra'
+                    }
+                ]
+            });
+        })
     }, []);
-
-    console.log(router);
-    console.log(book);
 
     return (
         <div className='list'>

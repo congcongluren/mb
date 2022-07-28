@@ -1,20 +1,21 @@
-.home{
+.home {
     text-align: center;
     color: aqua;
-    h2{
+
+    h2 {
         font-size: 30px;
     }
 
-    a{
-        cursor: pointer;
-    }
 
-    .name{
+
+    .name {
         display: flex;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        input{
+        margin: 20px;
+
+        input {
             background: rgb(230, 230, 230);
             height: 30px;
             font-size: 20px;
@@ -22,7 +23,8 @@
             padding: 10px 20px;
             border-radius: 50px;
         }
-        button{
+
+        button {
             font-size: 20px;
             padding: 10px 30px;
             margin-left: 20px;
@@ -30,4 +32,28 @@
             background: rgb(0, 183, 255);
         }
     }
+
+    a {
+        cursor: pointer;
+        margin: 10px;
+        color: currentColor;
+    }
+
+    .icon-changyong_chakangengduo {
+        color: bisque;
+        display: inline-block;
+        animation: rotation 2s linear infinite;
+    }
+}
+
+@keyframes rotation {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
 }

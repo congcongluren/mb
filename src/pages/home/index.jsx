@@ -2,9 +2,8 @@ import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { useRecoilState } from 'recoil';
-
 // atom
-import { textState } from '@recoil/atoms';
+import { textState } from '@recoil/user';
 
 import './index.scss';
 
@@ -24,7 +23,6 @@ function Home(props) {
         Welcome to use cclr !!
         <p>text: <span>{text}</span></p>
       </h2>
-      <a onClick={toList}>去看列表</a>
       <div className='name'>
         <input type="text"
           onChange={(e) => {
@@ -32,6 +30,8 @@ function Home(props) {
           }}
         />
       </div>
+      <a onClick={toList}>去看列表</a> <i className='iconfont icon-changyong_chakangengduo' />
+
     </div>
   )
 }
