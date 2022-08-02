@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router';
-
 import { useRecoilState } from 'recoil';
+
 // atom
 import { textState } from '@recoil/user';
-
+import Detail from './detail';
 import './index.scss';
 
 function Home(props) {
@@ -31,7 +31,7 @@ function Home(props) {
         />
       </div>
       <a onClick={toList}>去看列表</a> <i className='iconfont icon-changyong_chakangengduo' />
-
+      <Detail />
     </div>
   )
 }
