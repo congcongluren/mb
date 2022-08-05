@@ -9,10 +9,14 @@
     visibility: hidden;
 }
 
-body {
-    #main{
-        text-align: center;
-        transform: translateY(100px);
-        color: rgb(0, 255, 221);
-    }
+html, body, #main {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#main{
+    text-align: center;
+    color: rgba(44, 56, 54, 0.849);
+    font-size: 20px;
 }

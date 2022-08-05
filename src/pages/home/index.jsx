@@ -1,39 +1,26 @@
-import React, { useCallback, useState } from 'react';
-import { useNavigate } from 'react-router';
-import { useRecoilState } from 'recoil';
+import React, { useEffect } from 'react';
+import { observer } from 'mobx-react';
 
-// atom
-import { textState } from '@recoil/user';
-import Detail from './detail';
+import store from '@store';
 import './index.scss';
 
-function Home(props) {
-  const navigate = useNavigate(); // 跳转方法
+export default function Home() {
 
-  const [text, setText] = useRecoilState(textState);
-
-  // 跳转方法
-  const toList = () => {
-    navigate('/list', { state: 'alien' });
-  }
-
+  useEffect(() => {
+    store.addCount();
+    setTimeout(() => {
+      store.setName('cclr-cli');
+    }, 1000)
+  }, []);
   return (
-    <div className="home">
-      <h2>
-        Welcome to use cclr !!
-        <p>text: <span>{text}</span></p>
-      </h2>
-      <div className='name'>
-        <input type="text"
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-        />
-      </div>
-      <a onClick={toList}>去看列表</a> <i className='iconfont icon-changyong_chakangengduo' />
-      <Detail />
-    </div>
+    <Detail
+      store={store}
+    />
   )
 }
-
-export default Home;
+const Detail = observer((props) => {
+  const { store } = props;
+  return (
+    <div>{store.name}</div>
+  )
+})

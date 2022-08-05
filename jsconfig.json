@@ -13,7 +13,8 @@
             "@features/*": ["src/redux/features/*"],
             "@recoil/*": ["src/recoil/*"],
             "@utils/*": ["src/utils/*"],
-            "@pages/*": ["src/pages/*"]
+            "@pages/*": ["src/pages/*"],
+            "@store/*": ["src/store/*"]
         },
         "target": "es6",
         "experimentalDecorators": true
